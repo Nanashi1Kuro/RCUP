@@ -1,0 +1,8 @@
+prefix=/home/dev0ros/Desktop/for_mad/devel
+
+Name: palletizer_arm_model_gazebo
+Description: Description of palletizer_arm_model_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

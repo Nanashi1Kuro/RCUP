@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <arg name="world" default="empty"/> 
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find mybot_gazebo)/worlds/mybot.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mybot_description)/urdf/mybot_succ.xacro'"/>
+
+  <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+   args="-urdf -param robot_description -model mybot" />
+   
+   
+   
+   
+   
+<!--   
+    <arg name="robot_name" value="pillow" />
+    <arg name="x" default="1.0" />
+    <arg name="y" default="0.0" />
+    <arg name="z" default="2.0" />
+    <arg name="roll" default="0"/>
+    <arg name="pitch" default="0"/>
+    <arg name="yaw" default="0.0" />
+    <arg name="sdf_robot_file" value="$(find mybot_description)/models/pillow/model.sdf" />
+    
+    <node name="$(arg robot_name)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-file $(arg sdf_robot_file) -sdf -x $(arg x) -y $(arg y) -z $(arg z)  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg robot_name)"/>
+-->   
+
+   
+    <arg name="obst_name" value="obstacle" />
+    <arg name="x" default="1.5" />
+    <arg name="y" default="0.0" />
+    <arg name="z" default="0.01" />
+    <arg name="roll" default="0"/>
+    <arg name="pitch" default="0"/>
+    <arg name="yaw" default="0.0" />
+    <arg name="sdf_robot_file" value="$(find mybot_description)/sdf/obstacle.sdf" />
+    
+    <node name="$(arg obst_name)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-file $(arg sdf_robot_file) -sdf -x $(arg x) -y $(arg y) -z $(arg z)  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg obst_name)"/>
+  
+   
+   
+   
+   <!--simple_closed_chain     left_tr-->
+
+   <!-- * * * LEFT_TRACK * * * -->
+   <arg name="left_track" value="$(find mybot_description)/sdf/both_tr.sdf" />
+   <arg name="x_left_tr" default="0.06975" />
+   <arg name="y_left_tr" default="-0.08" />
+   <arg name="z_left_tr" default="0.0311" />
+   <arg name="roll_left_tr" default="0"/>
+   <arg name="pitch_left_tr" default="0"/>
+   <arg name="yaw_left_tr" default="0.0" />
+   <node name="left_track_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-file $(arg left_track) -sdf -x $(arg x_left_tr) -y $(arg y_left_tr) -z $(arg z_left_tr)  -R $(arg roll_left_tr) -P $(arg pitch_left_tr) -Y $(arg yaw_left_tr) -model left_track"/>
+   <!-- * * * LEFT_TRACK_END * * * -->
+
+
+   <!-- * * * RIGHT_TRACK * * * -->
+   <arg name="right_track" value="$(find mybot_description)/sdf/both_tr.sdf" />
+   <arg name="x_right_tr" default="0.06975" />
+   <arg name="y_right_tr" default="0.08" />
+   <arg name="z_right_tr" default="0.0311" />
+   <arg name="roll_right_tr" default="0"/>
+   <arg name="pitch_right_tr" default="0"/>
+   <arg name="yaw_right_tr" default="0.0" />
+   <node name="right_track_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-file $(arg right_track) -sdf -x $(arg x_right_tr) -y $(arg y_right_tr) -z $(arg z_right_tr)  -R $(arg roll_right_tr) -P $(arg pitch_right_tr) -Y $(arg yaw_right_tr) -model right_track"/>
+   <!-- * * * RIGHT_TRACK_END * * * -->
+
+
+
+
+</launch>

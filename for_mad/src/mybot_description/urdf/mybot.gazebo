@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<robot>
+
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>left_wheel_hinge</leftJoint>
+        <rightJoint>right_wheel_hinge</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <robotBaseFrame>chassis</robotBaseFrame>
+      </plugin>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="differential_drive_controller_1" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>left_wheel_hinge_1</leftJoint>
+        <rightJoint>right_wheel_hinge_1</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_1</commandTopic>
+        <odometryTopic>odom_1</odometryTopic>
+        <odometryFrame>odom_1</odometryFrame>
+        <robotBaseFrame>chassis_1</robotBaseFrame>
+      </plugin>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="differential_drive_controller_2" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>left_wheel_hinge_2</leftJoint>
+        <rightJoint>right_wheel_hinge_2</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_2</commandTopic>
+        <odometryTopic>odom_2</odometryTopic>
+        <odometryFrame>odom_2</odometryFrame>
+        <robotBaseFrame>chassis_2</robotBaseFrame>
+      </plugin>
+  </gazebo>
+  
+  
+  
+  <gazebo>
+    <plugin name="vert_controller_1" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>rec1_to_ch0</leftJoint>
+        <rightJoint>rec1_to_ch0</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_vert1</commandTopic>
+        <odometryTopic>odom_vert1</odometryTopic>
+        <odometryFrame>odom_vert1</odometryFrame>
+        <robotBaseFrame>rec_1</robotBaseFrame>
+      </plugin>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="gor_controller_1" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>ch1_to_rec1</leftJoint>
+        <rightJoint>ch1_to_rec1</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_gor1</commandTopic>
+        <odometryTopic>odom_gor1</odometryTopic>
+        <odometryFrame>odom_gor1</odometryFrame>
+        <robotBaseFrame>chassis_1</robotBaseFrame>
+      </plugin>
+  </gazebo>
+  
+  
+  
+  <gazebo>
+    <plugin name="vert_controller_2" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>rec2_to_ch1</leftJoint>
+        <rightJoint>rec2_to_ch1</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_vert2</commandTopic>
+        <odometryTopic>odom_vert2</odometryTopic>
+        <odometryFrame>odom_vert2</odometryFrame>
+        <robotBaseFrame>rec_2</robotBaseFrame>
+      </plugin>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="gor_controller_2" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>ch2_to_rec2</leftJoint>
+        <rightJoint>ch2_to_rec2</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_gor2</commandTopic>
+        <odometryTopic>odom_gor2</odometryTopic>
+        <odometryFrame>odom_gor2</odometryFrame>
+        <robotBaseFrame>chassis_2</robotBaseFrame>
+      </plugin>
+  </gazebo>
+  
+
+
+
+  <gazebo reference="chassis">
+      <material>Gazebo/Orange</material>
+      <!--self_collide>1</self_collide-->
+      <!--selfCollide>true</selfCollide-->
+      <!--plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>left_wheel_hinge</leftJoint>
+        <rightJoint>right_wheel_hinge</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <robotBaseFrame>chassis</robotBaseFrame>
+      </plugin-->
+  </gazebo>
+  
+  <gazebo reference="chassis_1">
+      <material>Gazebo/Orange</material>
+      <!--self_collide>1</self_collide-->
+      <!--selfCollide>true</selfCollide-->
+      <!--plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>left_wheel_hinge_1</leftJoint>
+        <rightJoint>right_wheel_hinge_1</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_1</commandTopic>
+        <odometryTopic>odom_1</odometryTopic>
+        <odometryFrame>odom_1</odometryFrame>
+        <robotBaseFrame>chassis_1</robotBaseFrame>
+      </plugin-->
+  </gazebo>
+  
+  <gazebo reference="chassis_2">
+      <material>Gazebo/Orange</material>
+      <!--self_collide>1</self_collide-->
+      <!--selfCollide>true</selfCollide-->
+      <!--plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>left_wheel_hinge_2</leftJoint>
+        <rightJoint>right_wheel_hinge_2</rightJoint>
+        <wheelSeparation>0.16</wheelSeparation>
+        <wheelDiameter>0.064</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel_2</commandTopic>
+        <odometryTopic>odom_2</odometryTopic>
+        <odometryFrame>odom_2</odometryFrame>
+        <robotBaseFrame>chassis_2</robotBaseFrame>
+      </plugin-->
+  </gazebo>
+    
+  <!--gazebo reference="test_box">
+    <material>Gazebo/black</material>
+    <selfCollide>true</selfCollide>
+  </gazebo-->
+  
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Black</material>
+    <!--selfCollide>true</selfCollide-->
+  </gazebo>
+  
+  <gazebo reference="left_wheel">
+    <material>Gazebo/Black</material>
+    <!--selfCollide>true</selfCollide-->
+  </gazebo>
+  
+  <gazebo reference="left_wheel_forw">
+    <material>Gazebo/Black</material>
+    <!--selfCollide>true</selfCollide-->
+  </gazebo>
+  
+  <gazebo reference="right_wheel_forw">
+    <material>Gazebo/Black</material>
+    <!--selfCollide>true</selfCollide-->
+  </gazebo>
+
+</robot>
