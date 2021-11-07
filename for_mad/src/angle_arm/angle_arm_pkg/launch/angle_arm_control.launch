@@ -1,14 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-		<node name = "angle_main_node_to_point_control" pkg = "angle_arm_pkg" type = "main_to_point_node.py" output = "screen"/>
-		<node name="angle_convert_and_publish" pkg="angle_arm_pkg" type = "publish_joint_state.py" output = "screen"/>
+		<node name = "angle_main_node_to_point_control" pkg = "angle_arm_pkg" type = "main_to_point_node.py" output = "screen" ns="/angle_robot">
+		</node>
+		<node name="angle_convert_and_publish" pkg="angle_arm_pkg" type = "publish_joint_state.py" output = "screen" ns="/angle_robot"/>
 </launch>
 
-
-
-    <!-- this will include the launch file for gazebo given the model -->  
-   <!-- <include file="$(find realsense2_description)/launch/gazebo1.launch">
-      <arg name="model" value="$(arg model)" />
-    </include> -->
-
- <!--   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" /> -->

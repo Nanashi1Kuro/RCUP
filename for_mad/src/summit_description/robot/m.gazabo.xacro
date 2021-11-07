@@ -8,8 +8,6 @@
 		</plugin>
 	</gazebo>
 
-
-
 	<joint name="ang_base" type="fixed">
 		<parent link="summit_base_link"/>
 		<child link="ang_link0"/>

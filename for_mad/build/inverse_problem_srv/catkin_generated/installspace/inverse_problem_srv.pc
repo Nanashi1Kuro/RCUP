@@ -1,8 +1,0 @@
-prefix=/home/dev0ros/Desktop/for_mad/install
-
-Name: inverse_problem_srv
-Description: Description of inverse_problem_srv
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: 

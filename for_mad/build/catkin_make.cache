@@ -1,2 +1,0 @@
-angle_arm/angle_arm_model_gazebo:angle_arm/angle_arm_pkg:catkin_realsense/realsense2_description:catkin_realsense/realsense_gazebo_plugin:inverse_problem_srv:mybot_control:mybot_description:mybot_gazebo:palletizer_arm/palletizer_arm_model_gazebo:palletizer_arm/palletizer_arm_pkg:summit_description:world_pkg
--DCATKIN_DEVEL_PREFIX=/home/dev0ros/Desktop/for_mad/devel -DCMAKE_INSTALL_PREFIX=/home/dev0ros/Desktop/for_mad/install -G Unix Makefiles

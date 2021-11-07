@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <launch>
-    <!-- arguments for the realsense camera to load -->
-   <!-- <arg name="pointcloud_enable" default="true" /> 
-    <arg name="realsense_enable" default="true" /> -->
+
+    <arg name="pointcloud_enable" default="true" /> 
+    <arg name="realsense_enable" default="true" />
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <!--<arg name="world_name" value="$(find angle_arm_model)/urdf/angle/world.world"/> -->
       <arg name="paused" value="false"/>
       <arg name="use_sim_time" value="true"/>
       <arg name="gui" value="true"/>
@@ -16,10 +17,12 @@
   <param name="robot_description" command="$(find xacro)/xacro '$(find summit_description)/robot/summit.urdf.xacro' --inorder" />
 
   <!-- Publish joint values -->
+  <!--
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-
+-->
   <!-- convert joint states to TF transforms for rviz, etc  -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+  </node>
 
   <!-- Spawn model -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
@@ -27,15 +30,22 @@
 
 
  <!-- OH NO, PLEASE GOD NO!!! -->
+ <rosparam file="$(find angle_arm_model_gazebo)/config/config.yaml" command="load"/>
   <node name="controller_spawner_angle" pkg ="controller_manager" type="spawner" respawn="false" output="screen"
  ns="/angle_robot" args="joint_state_controller angle_joint1_controller angle_joint2_controller angle_joint3_controller 
 angle_joint4_controller angle_joint5_controller angle_gripper_controller angle_gripper_sub_controller"/>
-
-    <node name="robot_state_publisher_angle" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
-        <remap from="/joint_states" to="/angle_robot/joint_states" />
+<!--
+    <node name="robot_state_publisher_angle" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" ns="/angle_robot">
+    <remap from="joint_states" to="angle_robot/joint_states" />
     </node>
-    <node name="angle_publish_kin_joint_state_model" pkg="angle_arm_model_gazebo" type="publish_kin_joint_state_model.py" output="screen"/>
+    -->
+    <node name="angle_publish_kin_joint_state_model" pkg="angle_arm_model_gazebo" type="publish_kin_joint_state_model.py" output="screen" ns="/angle_robot"/>
+
+<!--
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" /> -->
+
     <include file="$(find angle_arm_pkg)/launch/angle_arm_control.launch"/>
-   <!-- <include file="$(find realsense2_description)/launch/view_d4356_model_rviz_gazebo.launch"/> -->
+
+   
 </launch>
 

@@ -1,8 +1,0 @@
-prefix=/home/dev0ros/Desktop/for_mad/install
-
-Name: angle_arm_pkg
-Description: Description of angle_arm_pkg
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

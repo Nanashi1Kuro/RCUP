@@ -1,8 +1,0 @@
-prefix=/home/dev0ros/Desktop/for_mad/install
-
-Name: mybot_gazebo
-Description: Description of mybot_gazebo
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
