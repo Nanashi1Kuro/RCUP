@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find robot_base)/launch/base_process.launch" />
+  <include file="$(find navigation)/launch/navigation_amcl.launch" />
+</launch>

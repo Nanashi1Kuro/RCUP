@@ -8,8 +8,9 @@
       	<commandTopic>cmd_vel</commandTopic>
       	<odometryTopic>odom</odometryTopic>
       	<odometryFrame>odom</odometryFrame>
-      	<odometryRate>100.0</odometryRate>
-      	<robotBaseFrame>base_footprint</robotBaseFrame>
+      	<!--<odometryRate>100.0</odometryRate>-->
+      	<odometryRate>0</odometryRate>
+      	<robotBaseFrame>summit_base_footprint</robotBaseFrame>
       	<publishTF>false</publishTF>
     	</plugin>
   	</gazebo>
